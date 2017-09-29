@@ -53,6 +53,8 @@ public class MainFeed extends AppCompatActivity {
         mainAdapter adapter = new mainAdapter(this.getApplicationContext(),events );
         mRecyclerView.setAdapter(adapter);
 
+        //sign out user
+
 
 
     }

@@ -60,6 +60,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (user != null) {
                     // User is signed in
                     Log.d("Firebase", "onAuthStateChanged:signed_in:" + user.getUid());
+                    Intent i = new Intent(LoginActivity.this, MainFeed.class);
+                    startActivity(i);
+
                 } else {
                     // User is signed out
                     Log.d("Firebase", "onAuthStateChanged:signed_out");
