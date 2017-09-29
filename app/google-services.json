@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "459952756269",
+    "firebase_url": "https://social-728c1.firebaseio.com",
+    "project_id": "social-728c1",
+    "storage_bucket": "social-728c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459952756269:android:cbd25d76a0384bbe",
+        "android_client_info": {
+          "package_name": "com.example.kadendippe.social"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459952756269-m195d6nush43bbtbhobe7r8c0kmkd8ne.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kadendippe.social",
+            "certificate_hash": "64a758b5109bb4d58dfd85c1ea3075894ec525c3"
+          }
+        },
+        {
+          "client_id": "459952756269-ev85ugofqca1ovjp0j4seg6cppe1olvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtVsRI5b0c2heyPu5GYwL3saFLttgoUQo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459952756269-ev85ugofqca1ovjp0j4seg6cppe1olvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

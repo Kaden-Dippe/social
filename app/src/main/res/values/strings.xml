@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Social</string>
+    <string name="title_activity_main_feed">MainFeed</string>
+</resources>
