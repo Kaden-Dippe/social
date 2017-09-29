@@ -41,6 +41,8 @@ public class MainFeed extends AppCompatActivity {
         //list of events
         final ArrayList<Event> events = new ArrayList<>();
 
+        events.add(new Event("kadendippe@gmail.com", "lit banger", "blah", 10));
+
         //create recyclerview, and all that jazz
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv);

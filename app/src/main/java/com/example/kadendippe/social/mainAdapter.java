@@ -44,7 +44,7 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
         //holder.image.setImageResource();
 
         holder.name.setText(event._name);
-        holder.rvsp.setText(event._rvsp);
+        holder.rvsp.setText("Rvsp: " + String.valueOf(event._rvsp));
         holder.email.setText(event._memberEmail);
     }
 

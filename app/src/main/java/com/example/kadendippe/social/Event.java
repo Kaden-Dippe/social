@@ -15,7 +15,7 @@ in addition to a description of the event
 
     String _memberEmail;
     String _name;
-    String _imageUrL;
+    //String _imageUrL;
     String _description;
     int _rvsp;
 
@@ -23,10 +23,10 @@ in addition to a description of the event
 
     }
 
-    public Event(String memberEmail, String name, String imageUrl, String description, int rvsp){
+    public Event(String memberEmail, String name, String description, int rvsp){
         _memberEmail = memberEmail;
         _name = name;
-        _imageUrL = imageUrl;
+        //_imageUrL = imageUrl;
         _description = description;
         _rvsp = rvsp;
     }
