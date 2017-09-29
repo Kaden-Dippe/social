@@ -79,11 +79,18 @@ public class signUp extends AppCompatActivity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
 
+                        Toast.makeText(signUp.this, "reached attemptLogin",
+                                Toast.LENGTH_SHORT).show();
+
                         if (task.isSuccessful()) {
+
+                            Toast.makeText(signUp.this, "Welcome to the family :)",
+                                    Toast.LENGTH_SHORT).show();
 
                             //if sign in works
                             Intent i = new Intent(context, MainFeed.class);
                             startActivity(i);
+
 
                         } else {
                             //if sign up fails

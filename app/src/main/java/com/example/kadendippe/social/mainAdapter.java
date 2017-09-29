@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -19,81 +21,50 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
 
 
 
-    //TODO Question 4
-    //Create a constructor with two arguments. What would they be?
-    //Hint: You need to know what the ____ is to be able to manipulate the UI. Also need data to display!
-
-    /* YOUR CODE HERE */
     Context context;
-    ArrayList<Company> companies  = new ArrayList<>();
-    public CompaniesAdapter(Context context, ArrayList companies) {
+    ArrayList<Event> Events  = new ArrayList<>();
+    public mainAdapter(Context context, ArrayList Event) {
         this.context = context;
         //creating a copy of an array
-        this.companies = new ArrayList<Company>(companies);
+        this.Events = new ArrayList<Event>(Event);
     }
 
-    //TODO Question 5
-    //Override the onCreateViewHolder method
-    //Hint: we want a layout inflater from the context of its parent and inflate the row_view
-    //layout from the parent, then pass that into our custom view holder
 
-    /* YOUR CODE HERE */
     public mainAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_view,parent, false);
         return new CustomViewHolder(view);
     }
 
-    //TODO Question 6
-    //Bind the data to the holder based on the position
-
-
     @Override
     /* YOUR CODE HERE */
     public void onBindViewHolder(CustomViewHolder holder, int position) {
 
-        Company company = companies.get(position);
-        holder.textView.setText(company.companyName);
-        holder.ratingBar.setRating(company.likeCompany);
-        holder.imageView.setImageResource(company.imageResId);
+        Event event = Events.get(position);
+        //glide library stuff
+        //holder.image.setImageResource();
+
+        holder.name.setText(event._name);
+        holder.rvsp.setText(event._rvsp);
+        holder.email.setText(event._memberEmail);
     }
 
 
-    //TODO Question 7
-    //Override the item size method
-
-    /* YOUR CODE HERE */
     public int getItemCount() {
-        return companies.size();
+        return Events.size();
     }
-
-
-    //TODO Question 8
-    //Create a CustomViewHolder class that extends the base RecyclerView.ViewHolder
-    //Override its constructor class with the following signature:
-    //CustomViewHolder(View view) {
-    //    super(view);
-    //    ...
-    //}
-    //and create instance variables for the UI elements in the layout file
-    //Hint: findViewById is a method of the View class
-
-    /* YOUR CODE HERE */
-
 
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        RatingBar ratingBar;
-        TextView textView;
+        ImageView image;
+        TextView name;
+        TextView rvsp;
+        TextView email;
         public CustomViewHolder(View view) {
-
             super(view);
-            imageView = (ImageView) view.findViewById(R.id.imageView);
-
-            ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
-
-            textView = (TextView) view.findViewById(R.id.textView);
-
+            image = (ImageView) view.findViewById(R.id.image);
+            name = (TextView) view.findViewById(R.id.name);
+            email = (TextView) view.findViewById(R.id.email);
+            rvsp = (TextView) view.findViewById(R.id.rvsp);
         }
     }
 
