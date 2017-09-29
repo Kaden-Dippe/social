@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,10 @@ public class signUp extends AppCompatActivity {
 
     protected Context context;
 
+    protected EditText email;
+
+    protected EditText password;
+
 
 
     @Override
@@ -45,6 +50,10 @@ public class signUp extends AppCompatActivity {
 
         //signUp button
         Button signUp = (Button) findViewById(R.id.sex);
+
+        email = ((EditText) findViewById(R.id.e));
+
+        password = ((EditText) findViewById(R.id.pass));
 
 
 
@@ -69,6 +78,10 @@ public class signUp extends AppCompatActivity {
 
     private void attemptLogin(String email,String password) {
 
+        if (!validateForm()) {
+            return;
+        }
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -78,9 +91,6 @@ public class signUp extends AppCompatActivity {
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
-
-                        Toast.makeText(signUp.this, "reached attemptLogin",
-                                Toast.LENGTH_SHORT).show();
 
                         if (task.isSuccessful()) {
 
@@ -103,4 +113,27 @@ public class signUp extends AppCompatActivity {
 
 
     }
+
+    private boolean validateForm() {
+        boolean valid = true;
+
+        String email = ((EditText) findViewById(R.id.e)).getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(signUp.this, "Please enter an email",
+                    Toast.LENGTH_SHORT).show();
+            valid = false;
+        }
+
+        String password = ((EditText) findViewById(R.id.pass)).getText().toString();
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(signUp.this, "Please enter a password",
+                    Toast.LENGTH_SHORT).show();
+            valid = false;
+        }
+        return valid;
+    }
+
+
+
+
 }
