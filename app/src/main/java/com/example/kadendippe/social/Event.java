@@ -15,6 +15,7 @@ in addition to a description of the event
 
     String _memberEmail;
     String _name;
+    String _date;
     //String _imageUrL;
     String _description;
     int _rvsp;
@@ -23,13 +24,33 @@ in addition to a description of the event
 
     }
 
-    public Event(String memberEmail, String name, String description, int rvsp){
+
+    public Event(String memberEmail, String name, String description, String date, int rvsp){
         _memberEmail = memberEmail;
         _name = name;
+        _date = date;
         //_imageUrL = imageUrl;
         _description = description;
         _rvsp = rvsp;
     }
+
+    //getters
+    public String get_memberEmail() {
+        return _memberEmail;
+    }
+
+    public String get_name() {
+        return _name;
+    }
+
+    public String get_description() {
+        return _description;
+    }
+
+    public int get_rvsp() {
+        return _rvsp;
+    }
+
 
 
 
