@@ -13,28 +13,37 @@ in addition to a description of the event
 
  */
 
-    String _memberEmail;
+    public String _memberEmail;
     String _name;
     String _date;
     //String _imageUrL;
     String _description;
     int _rvsp;
+    String _id;
 
     public Event() {
 
     }
 
-
-    public Event(String memberEmail, String name, String description, String date, int rvsp){
-        _memberEmail = memberEmail;
-        _name = name;
-        _date = date;
+    public Event(String memberEmail, String name, String description, String date, int rvsp, String id){
+        this._memberEmail = memberEmail;
+        this._name = name;
+        this._date = date;
         //_imageUrL = imageUrl;
-        _description = description;
-        _rvsp = rvsp;
+        this._description = description;
+        this._rvsp = rvsp;
+        this._id = id;
     }
 
+
+
+
+
     //getters
+    public String get_date() {
+        return _date;
+    }
+
     public String get_memberEmail() {
         return _memberEmail;
     }
@@ -50,6 +59,9 @@ in addition to a description of the event
     public int get_rvsp() {
         return _rvsp;
     }
+
+    public String get_id() {return _id; }
+
 
 
 

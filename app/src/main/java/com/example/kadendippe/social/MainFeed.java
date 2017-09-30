@@ -23,6 +23,9 @@ import java.util.ArrayList;
 
 public class MainFeed extends AppCompatActivity {
 
+    //list of events
+    static ArrayList<Event> events = new ArrayList<>();
+
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
 
@@ -30,6 +33,40 @@ public class MainFeed extends AppCompatActivity {
     DatabaseReference ref;
 
     protected Context context;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+
+                events.clear();
+                //adding event to the recyclerview
+                for(DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
+                    Event event = eventSnapshot.getValue(Event.class);
+                    events.add(event);
+                }
+
+                //get keys for each snapshot, add it as a parameter to
+                mainAdapter adapter = new mainAdapter(context);
+                mRecyclerView.setAdapter(adapter);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Firebase", "Failed to read value.", error.toException());
+            }
+        });
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,29 +94,9 @@ public class MainFeed extends AppCompatActivity {
             }
         });
 
-        //list of events
-        final ArrayList<Event> events = new ArrayList<>();
 
-        /*
+
         // Read from the database
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d("Firebase", "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("Firebase", "Failed to read value.", error.toException());
-            }
-        });
-        */
-
-
 
         //create recyclerview, and all that jazz
 
@@ -87,9 +104,9 @@ public class MainFeed extends AppCompatActivity {
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-
-        mainAdapter adapter = new mainAdapter(this.getApplicationContext(),events );
+        mainAdapter adapter = new mainAdapter(this.getApplicationContext());
         mRecyclerView.setAdapter(adapter);
+
 
         //sign out user
 

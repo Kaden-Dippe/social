@@ -1,5 +1,6 @@
 package com.example.kadendippe.social;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class newEventActivity extends AppCompatActivity {
 
     protected FirebaseAuth mAuth;
 
+    public Context context;
+
 
 
     @Override
@@ -32,14 +35,18 @@ public class newEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_event);
 
+        //getting context
+        context = this.getApplicationContext();
+
         //getReference tells you what node you are getting
         ref = FirebaseDatabase.getInstance().getReference("Events");
 
         name = (EditText) findViewById(R.id.name);
-
         date = (EditText) findViewById(R.id.date);
 
         description = (EditText) findViewById(R.id.description);
+
+
 
 
         //click on image view should lead to camera roll intent
@@ -66,18 +73,19 @@ public class newEventActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = mAuth.getCurrentUser();
-
         String id = ref.push().getKey();
 
         String n = name.getText().toString();
-
         String d = date.getText().toString();
-
         String des = description.getText().toString();
 
-        Event event = new Event(user.getEmail(),n,des,d,0);
-
+        Event event = new Event(user.getEmail(),n,des,d,0,id);
+        //put new event into the database
         ref.child(id).setValue(event);
 
+        //get back to main feed
+        Intent i = new Intent(context, MainFeed.class);
+
+        startActivity(i);
     }
 }

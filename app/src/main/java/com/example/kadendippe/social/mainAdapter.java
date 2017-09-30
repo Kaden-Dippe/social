@@ -1,13 +1,16 @@
 package com.example.kadendippe.social;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -22,11 +25,9 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
 
 
     Context context;
-    ArrayList<Event> Events  = new ArrayList<>();
-    public mainAdapter(Context context, ArrayList Event) {
+    public mainAdapter(Context context) {
         this.context = context;
         //creating a copy of an array
-        this.Events = new ArrayList<Event>(Event);
     }
 
 
@@ -39,18 +40,21 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
     /* YOUR CODE HERE */
     public void onBindViewHolder(CustomViewHolder holder, int position) {
 
-        Event event = Events.get(position);
+        Event event = MainFeed.events.get(position);
         //glide library stuff
         //holder.image.setImageResource();
 
-        holder.name.setText(event._name);
-        holder.rvsp.setText("Rvsp: " + String.valueOf(event._rvsp));
-        holder.email.setText(event._memberEmail);
+        holder.name.setText(event.get_name());
+        holder.rvsp.setText("Rvsp: " + String.valueOf(event.get_rvsp()));
+        holder.email.setText(event.get_memberEmail());
+        holder.id = event.get_id();
+
     }
 
 
     public int getItemCount() {
-        return Events.size();
+
+        return MainFeed.events.size();
     }
 
 
@@ -59,8 +63,20 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
         TextView name;
         TextView rvsp;
         TextView email;
+        String id;
         public CustomViewHolder(View view) {
             super(view);
+
+            //go to specific event when you click on
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    Intent i = new Intent(context, eventActivity.class);
+                    i.putExtra(id, "id for firebase");
+                    context.startActivity(i);
+
+                }
+            });
+
             image = (ImageView) view.findViewById(R.id.image);
             name = (TextView) view.findViewById(R.id.name);
             email = (TextView) view.findViewById(R.id.email);

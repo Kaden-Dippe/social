@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".newEventActivity">
         </activity>
+        <activity android:name=".eventActivity">
+        </activity>
     </application>
 
 </manifest>
