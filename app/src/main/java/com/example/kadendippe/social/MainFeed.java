@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MainFeed extends AppCompatActivity {
 
@@ -28,6 +30,8 @@ public class MainFeed extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
+
+    mainAdapter adapter;
 
     //database reference
     DatabaseReference ref;
@@ -52,11 +56,14 @@ public class MainFeed extends AppCompatActivity {
                     Log.e("Id", event.get_id());
                     events.add(event);
                 }
+                //reverse the list to get rid of timestamps
+                Collections.reverse(events);
+
+                adapter.notifyDataSetChanged();
 
                 //get keys for each snapshot, add it as a parameter to
                 mainAdapter adapter = new mainAdapter(context);
                 mRecyclerView.setAdapter(adapter);
-
 
 
             }
@@ -106,7 +113,7 @@ public class MainFeed extends AppCompatActivity {
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        mainAdapter adapter = new mainAdapter(this.getApplicationContext());
+        adapter = new mainAdapter(this.getApplicationContext());
         mRecyclerView.setAdapter(adapter);
 
 

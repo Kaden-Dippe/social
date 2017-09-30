@@ -15,6 +15,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kadendippe on 9/29/17.
@@ -25,6 +26,9 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
 
 
     String a;
+
+    //so that onclick listener can access this list
+    public List<Event> Events = MainFeed.events;
 
     Context context;
     public mainAdapter(Context context) {
@@ -49,24 +53,17 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
         holder.name.setText(event.get_name());
         holder.rvsp.setText("Rvsp: " + String.valueOf(event.get_rvsp()));
         holder.email.setText(event.get_memberEmail());
+
+        /*
         holder.id = event.get_id();
-
-        Log.e("Error",holder.id);
-
-        //id String to get passed in
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-
-            @Override public void onClick(View v) {
-                Intent i = new Intent(context, eventActivity.class);
-                i.putExtra("id for firebase", holder.id);
-                context.startActivity(i);
-
-            }
-        });
+        holder.memberEmail = event.get_memberEmail();
+        holder.nameS = event.get_name();
+        holder.date = event.get_date();
+        holder.rvspS = event.get_rvsp();
+        holder.description = event.get_description();
+        */
 
     }
-
 
     public int getItemCount() {
 
@@ -79,7 +76,18 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
         TextView name;
         TextView rvsp;
         TextView email;
+        //info to pass to the next event
+
+        /*
         String id;
+        public String memberEmail;
+        String nameS;
+        String date;
+        //String imageUrL;
+        String description;
+        int rvspS;
+        */
+
         public CustomViewHolder(View view) {
             super(view);
 
@@ -87,6 +95,24 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
             name = (TextView) view.findViewById(R.id.name);
             email = (TextView) view.findViewById(R.id.email);
             rvsp = (TextView) view.findViewById(R.id.rvsp);
+
+            view.setOnClickListener(new View.OnClickListener() {
+
+                @Override public void onClick(View v) {
+
+
+                    Event event = Events.get(getAdapterPosition());
+                    Intent i = new Intent(context, eventActivity.class);
+                    i.putExtra("id", event.get_id());
+                    i.putExtra("email", event._memberEmail);
+                    i.putExtra("name", event._name);
+                    i.putExtra("date",  event._date);
+                    i.putExtra("rvsp", event._rvsp);
+                    i.putExtra("description", event._description);
+                    context.startActivity(i);
+
+                }
+            });
         }
     }
 
