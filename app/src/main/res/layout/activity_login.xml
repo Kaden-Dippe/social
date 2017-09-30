@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="133dp"
-        android:layout_height="59dp"
+        android:layout_width="203dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="-1dp"
         android:layout_marginTop="8dp"
         android:text="MDB Socials"
@@ -24,6 +24,7 @@
 
     <EditText
         android:id="@+id/email"
+        android:hint="enter email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -41,11 +42,12 @@
 
     <EditText
         android:id="@+id/password"
+        android:hint="enter password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="41dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintHorizontal_bias="0.0"

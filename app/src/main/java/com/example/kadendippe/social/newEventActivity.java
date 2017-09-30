@@ -74,15 +74,15 @@ public class newEventActivity extends AppCompatActivity {
         String d = date.getText().toString();
         String des = description.getText().toString();
 
-            FirebaseUser user = mAuth.getCurrentUser();
-            String id = ref.push().getKey();
-            Event event = new Event(user.getEmail(), n, des, d, 0, id);
-            //put new event into the database
-            ref.child(id).setValue(event);
-            //get back to main feed
-            Intent i = new Intent(context, MainFeed.class);
+        FirebaseUser user = mAuth.getCurrentUser();
+        String id = ref.push().getKey();
+        Event event = new Event(user.getEmail(), n, des, d, 0, id,"");
+        //put new event into the database
+        ref.child(id).setValue(event);
+        //get back to main feed
+        Intent i = new Intent(context, MainFeed.class);
 
-            startActivity(i);
+        startActivity(i);
 
 
     }

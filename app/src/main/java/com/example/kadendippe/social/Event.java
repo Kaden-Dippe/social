@@ -1,8 +1,13 @@
 package com.example.kadendippe.social;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by kadendippe on 9/29/17.
  */
+
+
 
 public class Event {
 
@@ -20,12 +25,16 @@ in addition to a description of the event
     String _description;
     int _rvsp;
     String _id;
+    ArrayList<String> _signups = new ArrayList<>();
+
 
     public Event() {
 
     }
 
-    public Event(String memberEmail, String name, String description, String date, int rvsp, String id){
+
+
+    public Event(String memberEmail, String name, String description, String date, int rvsp, String id, String signup){
         this._memberEmail = memberEmail;
         this._name = name;
         this._date = date;
@@ -33,6 +42,7 @@ in addition to a description of the event
         this._description = description;
         this._rvsp = rvsp;
         this._id = id;
+        _signups.add(signup);
     }
 
 
@@ -65,7 +75,9 @@ in addition to a description of the event
     }
 
 
-
+    public List<String> get_signups() {
+        return _signups;
+    }
 
 
 }
