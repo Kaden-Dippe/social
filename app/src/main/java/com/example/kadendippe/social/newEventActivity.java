@@ -46,9 +46,6 @@ public class newEventActivity extends AppCompatActivity {
 
         description = (EditText) findViewById(R.id.description);
 
-
-
-
         //click on image view should lead to camera roll intent
 
         //name, description, date

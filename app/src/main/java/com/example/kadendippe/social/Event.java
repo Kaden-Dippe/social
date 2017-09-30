@@ -36,9 +36,6 @@ in addition to a description of the event
     }
 
 
-
-
-
     //getters
     public String get_date() {
         return _date;
@@ -61,6 +58,11 @@ in addition to a description of the event
     }
 
     public String get_id() {return _id; }
+
+
+    public void set_id(String s){
+        _id = s;
+    }
 
 
 

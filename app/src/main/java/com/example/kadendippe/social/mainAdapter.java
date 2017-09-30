@@ -24,6 +24,8 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
 
 
 
+    String a;
+
     Context context;
     public mainAdapter(Context context) {
         this.context = context;
@@ -38,7 +40,7 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
 
     @Override
     /* YOUR CODE HERE */
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(final CustomViewHolder holder, int position) {
 
         Event event = MainFeed.events.get(position);
         //glide library stuff
@@ -48,6 +50,20 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
         holder.rvsp.setText("Rvsp: " + String.valueOf(event.get_rvsp()));
         holder.email.setText(event.get_memberEmail());
         holder.id = event.get_id();
+
+        Log.e("Error",holder.id);
+
+        //id String to get passed in
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override public void onClick(View v) {
+                Intent i = new Intent(context, eventActivity.class);
+                i.putExtra("id for firebase", holder.id);
+                context.startActivity(i);
+
+            }
+        });
 
     }
 
@@ -66,16 +82,6 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
         String id;
         public CustomViewHolder(View view) {
             super(view);
-
-            //go to specific event when you click on
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    Intent i = new Intent(context, eventActivity.class);
-                    i.putExtra(id, "id for firebase");
-                    context.startActivity(i);
-
-                }
-            });
 
             image = (ImageView) view.findViewById(R.id.image);
             name = (TextView) view.findViewById(R.id.name);

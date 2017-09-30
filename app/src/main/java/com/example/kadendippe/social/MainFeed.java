@@ -48,6 +48,8 @@ public class MainFeed extends AppCompatActivity {
                 //adding event to the recyclerview
                 for(DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
                     Event event = eventSnapshot.getValue(Event.class);
+                    event.set_id(eventSnapshot.getKey());
+                    Log.e("Id", event.get_id());
                     events.add(event);
                 }
 

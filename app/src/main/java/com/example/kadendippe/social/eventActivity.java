@@ -3,6 +3,7 @@ package com.example.kadendippe.social;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -14,7 +15,6 @@ public class eventActivity extends AppCompatActivity {
 
     DatabaseReference ref;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,8 @@ public class eventActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         final String id = intent.getStringExtra("id for firebase");
+
+        Log.d("Id", id);
 
         ref = FirebaseDatabase.getInstance().getReference("Events");
 
