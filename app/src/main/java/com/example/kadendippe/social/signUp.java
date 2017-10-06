@@ -57,15 +57,12 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
 
         signUp.setOnClickListener(this);
 
-        //settting edit text text
-        //((EditText) findViewById(R.id.e)).setText("Email", TextView.BufferType.EDITABLE);
-        //((EditText) findViewById(R.id.pass)).setText("Password", TextView.BufferType.EDITABLE);
-
-
 
     }
 
     private void attemptSignup(String email,String password) {
+
+        //!Utils.validateForm(email, password, this.getApplicationContext()
 
         if (!validateForm()) {
             return;
@@ -73,54 +70,48 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d("Firebase", "createUserWithEmail:onComplete:" + task.isSuccessful());
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d(getResources().getString(R.string.firebase), "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-
-                        if (task.isSuccessful()) {
-
-                            Toast.makeText(signUp.this, "Welcome to the family :)",
-                                    Toast.LENGTH_SHORT).show();
-
-                            //if sign in works
-                            Intent i = new Intent(context, MainFeed.class);
-                            startActivity(i);
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(signUp.this, "Welcome!)",
+                                            Toast.LENGTH_SHORT).show();
+                                    Intent i = new Intent(context, MainFeed.class);
+                                    startActivity(i);
 
 
-                        } else {
-                            //if sign up fails
-                            Toast.makeText(signUp.this, "Sign up failed",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                                } else {
+                                    //if sign up fails
+                                    Toast.makeText(signUp.this, "Sign up failed",
+                                            Toast.LENGTH_SHORT).show();
+                                }
 
-                    }
-                });
-
-
+                            }
+                        });
     }
+
+
 
     private boolean validateForm() {
         boolean valid = true;
 
         String email = ((EditText) findViewById(R.id.e)).getText().toString();
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(email) || email.length() < 4) {
             Toast.makeText(signUp.this, "Please enter an email",
                     Toast.LENGTH_SHORT).show();
             valid = false;
         }
 
         String password = ((EditText) findViewById(R.id.pass)).getText().toString();
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(signUp.this, "Please enter a password",
+        if (TextUtils.isEmpty(password) || password.length() < 5) {
+            Toast.makeText(signUp.this, "Password must be at least 5 characters",
                     Toast.LENGTH_SHORT).show();
             valid = false;
         }
         return valid;
     }
+
 
     public void onClick(View v){
         switch(v.getId()) {

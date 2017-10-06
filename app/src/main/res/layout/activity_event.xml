@@ -48,48 +48,47 @@
         android:id="@+id/name"
         android:layout_width="374dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="284dp"
         android:fontFamily="casual"
         android:text="TextView"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607"
         />
 
     <TextView
-        android:background="@drawable/border"
         android:id="@+id/rvsp"
-        android:layout_width="124dp"
-        android:layout_height="50dp"
+        android:layout_width="120dp"
+        android:layout_height="67dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border"
         android:fontFamily="casual"
         android:text="TextView"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177"/>
+        app:layout_constraintVertical_bias="0.177"
+        tools:layout_editor_absoluteX="248dp"/>
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="372dp"
-        android:layout_height="69dp"
+        android:layout_width="375dp"
+        android:layout_height="63dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
         android:fontFamily="casual"
@@ -97,17 +96,18 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769"/>
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:layout_editor_absoluteX="-1dp"/>
 
     <TextView
         android:background="@drawable/border"
         android:id="@+id/date"
         android:layout_width="112dp"
-        android:layout_height="55dp"
+        android:layout_height="72dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -121,7 +121,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359"/>
+        app:layout_constraintVertical_bias="0.408"/>
 
     <CheckBox
         android:id="@+id/interested"

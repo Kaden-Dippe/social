@@ -15,7 +15,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="casual"
         android:text="Sign Up!"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,6 +35,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="casual"
         android:text="Join Us!"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Large"
@@ -47,7 +51,6 @@
 
     <EditText
         android:id="@+id/e"
-        android:hint="enter email"
         android:layout_width="256dp"
         android:layout_height="61dp"
         android:layout_marginBottom="8dp"
@@ -55,17 +58,17 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:fontFamily="casual"
+        android:hint="enter email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359"
-        />
+        app:layout_constraintVertical_bias="0.359"/>
 
     <EditText
         android:id="@+id/pass"
-        android:hint="enter password"
         android:layout_width="250dp"
         android:layout_height="58dp"
         android:layout_marginBottom="8dp"
@@ -73,6 +76,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:fontFamily="casual"
+        android:hint="enter password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

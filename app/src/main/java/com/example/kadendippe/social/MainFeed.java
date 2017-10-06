@@ -111,8 +111,9 @@ public class MainFeed extends AppCompatActivity {
         adapter = new mainAdapter(this.getApplicationContext());
         mRecyclerView.setAdapter(adapter);
 
-
         //sign out user
+
+
 
 
 
