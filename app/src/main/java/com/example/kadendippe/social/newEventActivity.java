@@ -23,7 +23,6 @@ public class newEventActivity extends AppCompatActivity {
     public EditText date;
     public EditText description;
 
-
     protected FirebaseAuth mAuth;
 
     public Context context;
@@ -50,7 +49,6 @@ public class newEventActivity extends AppCompatActivity {
 
         //name, description, date
 
-
         Button add = (Button) findViewById(R.id.add);
 
         add.setText("Create Event!");
@@ -67,8 +65,6 @@ public class newEventActivity extends AppCompatActivity {
     private void addEvent() {
 
         mAuth = FirebaseAuth.getInstance();
-
-
 
         String n = name.getText().toString();
         String d = date.getText().toString();

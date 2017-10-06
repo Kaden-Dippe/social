@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class signUp extends AppCompatActivity {
+public class signUp extends AppCompatActivity implements View.OnClickListener{
 
 
 
@@ -61,22 +61,11 @@ public class signUp extends AppCompatActivity {
         //((EditText) findViewById(R.id.e)).setText("Email", TextView.BufferType.EDITABLE);
         //((EditText) findViewById(R.id.pass)).setText("Password", TextView.BufferType.EDITABLE);
 
-        //when you hit signup button
-        signUp.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                String email = ((EditText) findViewById(R.id.e)).getText().toString();
-                String password = ((EditText) findViewById(R.id.pass)).getText().toString();
-
-                attemptLogin(email,password);
-
-            }
-        });
 
     }
 
-    private void attemptLogin(String email,String password) {
+    private void attemptSignup(String email,String password) {
 
         if (!validateForm()) {
             return;
@@ -131,6 +120,19 @@ public class signUp extends AppCompatActivity {
             valid = false;
         }
         return valid;
+    }
+
+    public void onClick(View v){
+        switch(v.getId()) {
+            case R.id.sex:
+                String email = ((EditText) findViewById(R.id.e)).getText().toString();
+                String password = ((EditText) findViewById(R.id.pass)).getText().toString();
+                attemptSignup(email,password);
+                break;
+        }
+
+
+
     }
 
 
