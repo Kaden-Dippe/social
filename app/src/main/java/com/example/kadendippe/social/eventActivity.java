@@ -60,14 +60,14 @@ public class eventActivity extends AppCompatActivity implements View.OnClickList
         context = this.getApplicationContext();
 
 
-        Intent intent = getIntent();
+        Bundle intent = getIntent().getExtras();
 
-        id = intent.getStringExtra("id");
-        final String emailz = intent.getStringExtra("email");
-        final String namez = intent.getStringExtra("name");
-        final String datez = intent.getStringExtra("date");
-        final int rvspz = intent.getIntExtra("rvsp: ", 0);
-        final String descriptionz = intent.getStringExtra("description");
+        id = intent.getString("id");
+        final String emailz = intent.getString("email");
+        final String namez = intent.getString("name");
+        final String datez = intent.getString("date");
+        final int rvspz = intent.getInt("rvsp: ", 0);
+        final String descriptionz = intent.getString("description");
 
 
         ref = FirebaseDatabase.getInstance().getReference("Events/" + id);
@@ -100,7 +100,7 @@ public class eventActivity extends AppCompatActivity implements View.OnClickList
         rvsp.setText("Rvsp: " + String.valueOf(rvspz));
         date.setText("date: " + datez);
         name.setText(namez);
-        //description.setText(descriptionz);
+        description.setText(descriptionz);
         interested.setText("Going");
 
     }
