@@ -1,5 +1,7 @@
 package com.example.kadendippe.social;
 
+import android.net.Uri;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,7 @@ in addition to a description of the event
     public String _memberEmail;
     String _name;
     String _date;
-    //String _imageUrL;
+    String _imageUri;
     String _description;
     int _rvsp;
     String _id;
@@ -33,17 +35,30 @@ in addition to a description of the event
     }
 
 
-
+/*
     public Event(String memberEmail, String name, String description, String date, int rvsp, String id, String signup){
         this._memberEmail = memberEmail;
         this._name = name;
         this._date = date;
-        //_imageUrL = imageUrl;
         this._description = description;
         this._rvsp = rvsp;
         this._id = id;
         _signups.add(signup);
     }
+*/
+
+    public Event(String memberEmail, String name, String description, String date, int rvsp, String id, String signup, String imageUrL){
+        this._memberEmail = memberEmail;
+        this._name = name;
+        this._date = date;
+        this._imageUri = imageUrL;
+        this._description = description;
+        this._rvsp = rvsp;
+        this._id = id;
+        _signups.add(signup);
+    }
+
+
 
 
     //getters
@@ -69,11 +84,11 @@ in addition to a description of the event
 
     public String get_id() {return _id; }
 
+    public String get_imageUri(){ return _imageUri; }
 
     public void set_id(String s){
         _id = s;
     }
-
 
     public List<String> get_signups() {
         return _signups;

@@ -99,8 +99,6 @@ public class mainAdapter extends RecyclerView.Adapter<mainAdapter.CustomViewHold
             view.setOnClickListener(new View.OnClickListener() {
 
                 @Override public void onClick(View v) {
-
-
                     Event event = Events.get(getAdapterPosition());
                     Intent i = new Intent(context, eventActivity.class);
                     i.putExtra("id", event.get_id());

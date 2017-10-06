@@ -25,7 +25,6 @@ import java.util.Collections;
 
 public class MainFeed extends AppCompatActivity {
 
-    //list of events
     static ArrayList<Event> events = new ArrayList<>();
 
     private RecyclerView mRecyclerView;
@@ -33,7 +32,6 @@ public class MainFeed extends AppCompatActivity {
 
     mainAdapter adapter;
 
-    //database reference
     DatabaseReference ref;
 
     protected Context context;
@@ -42,9 +40,6 @@ public class MainFeed extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
-        //transaction! stuff
-
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -52,19 +47,18 @@ public class MainFeed extends AppCompatActivity {
                 // whenever data at this location is updated.
 
                 events.clear();
-                //adding event to the recyclerview
                 for(DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
                     Event event = eventSnapshot.getValue(Event.class);
                     event.set_id(eventSnapshot.getKey());
                     Log.e("Id", event.get_id());
                     events.add(event);
                 }
-                //reverse the list to get rid of timestamps
+                //TO ENSURE NEW EVENTS ARE AT THE TOP OF USERS FEED
+                //A LOT CLEANER THAN DEALING WITH TIMESTAMPS
                 Collections.reverse(events);
 
                 adapter.notifyDataSetChanged();
 
-                //get keys for each snapshot, add it as a parameter to
                 mainAdapter adapter = new mainAdapter(context);
                 mRecyclerView.setAdapter(adapter);
 
@@ -82,10 +76,8 @@ public class MainFeed extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //random android stuff
 
 
-        //getReference tells you what node you are getting
         ref = FirebaseDatabase.getInstance().getReference("Events");
 
         super.onCreate(savedInstanceState);
