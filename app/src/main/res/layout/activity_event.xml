@@ -31,17 +31,20 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border"
         android:fontFamily="casual"
         android:text="TextView"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017"
-        app:layout_constraintHorizontal_bias="0.529"/>
+        app:layout_constraintVertical_bias="0.017"/>
 
     <TextView
+        android:background="@drawable/border"
         android:id="@+id/name"
         android:layout_width="374dp"
         android:layout_height="57dp"
@@ -61,6 +64,7 @@
         />
 
     <TextView
+        android:background="@drawable/border"
         android:id="@+id/rvsp"
         android:layout_width="124dp"
         android:layout_height="50dp"
@@ -81,22 +85,26 @@
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="308dp"
+        android:layout_width="372dp"
         android:layout_height="69dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border"
+        android:fontFamily="casual"
         android:text="TextView"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769"
-        app:layout_constraintHorizontal_bias="0.133"/>
+        app:layout_constraintVertical_bias="0.769"/>
 
     <TextView
+        android:background="@drawable/border"
         android:id="@+id/date"
         android:layout_width="112dp"
         android:layout_height="55dp"

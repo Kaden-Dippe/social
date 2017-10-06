@@ -12,16 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,10 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     protected FirebaseAuth.AuthStateListener mAuthListener;
 
-
     public Context context;
-
-    private final int SPLASH_DISPLAY_LENGTH = 1000;
 
 
     @Override
@@ -41,31 +34,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         context = this.getApplicationContext();
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
 
-        //login button
         Button logIn = (Button) findViewById(R.id.LogIn);
-        //sign up button
         Button signUp = (Button) findViewById(R.id.SignUp);
-
         signUp.setOnClickListener(this);
-
         logIn.setOnClickListener(this);
-
 
         logIn.setText("Log In");
         signUp.setText("Sign Up");
 
-
-        //tracking users signing in and out
-        mAuth = FirebaseAuth.getInstance();
-
-        //listening for people trying to log in
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+
                 if (user != null) {
                     // User is signed in
                     Log.d("Firebase", "onAuthStateChanged:signed_in:" + user.getUid());
@@ -76,6 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     // User is signed out
                     Log.d("Firebase", "onAuthStateChanged:signed_out");
                 }
+
             }
         };
 

@@ -11,23 +11,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Splash_Activity"
+                  android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".signUp">
+        <activity android:name=".signUp"
+                  android:label="Sign Up">
         </activity>
         <activity
             android:name=".MainFeed"
-            android:label="@string/title_activity_main_feed"
+            android:label="Events"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".newEventActivity">
         </activity>
-        <activity android:name=".eventActivity">
+        <activity android:name=".eventActivity"
+                  android:label="Event">
+        </activity>
+        <activity android:name=".LoginActivity"
+                  android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 

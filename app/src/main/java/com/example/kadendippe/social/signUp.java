@@ -55,7 +55,7 @@ public class signUp extends AppCompatActivity implements View.OnClickListener{
 
         password = ((EditText) findViewById(R.id.pass));
 
-
+        signUp.setOnClickListener(this);
 
         //settting edit text text
         //((EditText) findViewById(R.id.e)).setText("Email", TextView.BufferType.EDITABLE);
